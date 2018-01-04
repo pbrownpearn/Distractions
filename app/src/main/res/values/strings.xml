@@ -1,0 +1,20 @@
+<resources>
+    <string name="app_name">Distractions</string>
+
+    <string name="new_website">Add Website</string>
+    <string name="add_website_title">Add Website</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="settings_listed_websites_default" translatable="false">5</string>
+    <string name="settings_listed_websites_label">Number of listed websites</string>
+    <string name="settings_listed_websites_key" translatable="false">listed_websites</string>
+
+    <string name="settings_distractions_default" translatable="false">3</string>
+    <string name="settings_distractions_label">Number of daily distractions</string>
+    <string name="settings_distractions_key" translatable="false">distractions</string>
+
+    <string name="settings_distractions_today_key" translatable="false">today</string>
+
+
+</resources>

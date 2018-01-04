@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#4CAF50</color>
+    <color name="colorPrimaryDark">#388E3C</color>
+    <color name="colorAccent">#FF4081</color>
+
+    <color name="priorityLow">#2c5b2e</color>
+    <color name="priorityMedium">#388E3C</color>
+    <color name="priorityHigh">#4CAF50</color>
+
+
+    <color name="border">#BDBDBD</color>
+
+    <color name="backCatalogueEmpty">#ff7aa7</color>
+    <color name="backCatalogueOneItem">#f4558b</color>
+    <color name="backCatalogueTwoItems">#e53b75</color>
+    <color name="backCatalogueThreeItems">#c6295f</color>
+    <color name="backCatalogueFourItems">#962149</color>
+    <color name="backCatalogueManyItems">#541228</color>
+
+</resources>
