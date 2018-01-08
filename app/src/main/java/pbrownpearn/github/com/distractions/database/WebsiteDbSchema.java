@@ -1,7 +1,5 @@
 package pbrownpearn.github.com.distractions.database;
 
-
-
 public class WebsiteDbSchema {
 
     public static final class WebsiteTable {

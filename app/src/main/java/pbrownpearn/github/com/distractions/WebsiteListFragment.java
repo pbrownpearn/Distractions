@@ -35,8 +35,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.concurrent.ExecutionException;
 
-
-
 public class WebsiteListFragment extends Fragment {
 
     private static final String TAG = WebsiteListFragment.class.getSimpleName();
@@ -49,15 +47,13 @@ public class WebsiteListFragment extends Fragment {
     public static int numberOfWebsites = 5;
     public static int numberOfDistractions = 3;
 
-
-
     public static int distractionsToday;
     public static long distractionTimer;
 
-    public static final long DAY_IN_MILLISECONDS = (long) Math.pow(8.67, 7);
+    public static final long DAY_IN_MILLISECONDS = (long) Math.pow(8.64, 7);
+    public static final long MINUTE_IN_MILLISCONDS = 60000;
 
     private boolean disableReading = false;
-
 
     private RecyclerView mWebsiteRecyclerView;
     private WebsiteAdapter mAdapter;
@@ -170,7 +166,7 @@ public class WebsiteListFragment extends Fragment {
             } else {
                 Toast.makeText(getContext(), "You have reached your article limit for the day. Please come back tomorrow.", Toast.LENGTH_LONG).show();
                 if (!disableReading) {
-                    distractionTimer = System.currentTimeMillis() + DAY_IN_MILLISECONDS;
+                    distractionTimer = System.currentTimeMillis() + MINUTE_IN_MILLISCONDS;
                 }
                 disableReading = true;
             }
@@ -252,6 +248,15 @@ public class WebsiteListFragment extends Fragment {
         super.onResume();
     }
 
+    @Override
+    public void onStart() {
+        if (WebsiteListFragment.distractionTimer < System.currentTimeMillis()) {
+            WebsiteListFragment.distractionTimer = 0;
+            disableReading = false;
+        }
+        super.onStart();
+    }
+
     private void updateUI() {
         mWebsites = websiteRetrieval.getmWebsites(numberOfWebsites);
         mAdapter = new WebsiteAdapter(mWebsites);
@@ -264,10 +269,13 @@ public class WebsiteListFragment extends Fragment {
 
         Log.i(TAG, "Current time: " + currentTime);
         Log.i(TAG, "Distraction timer: " + distractionTimer);
+        Log.i(TAG, "Difference in hours: " + ((distractionTimer * 2.77778e-7) - (currentTime * 2.77778e-7)));
+
 
         if (disableReading && currentTime > distractionTimer) {
-            distractionsToday = 0;
-            disableReading = false;
+                distractionsToday = 0;
+                disableReading = false;
+
         }
 
         if (distractionsToday >= numberOfDistractions) {

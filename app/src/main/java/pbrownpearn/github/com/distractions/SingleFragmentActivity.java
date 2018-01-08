@@ -118,6 +118,9 @@ public abstract class SingleFragmentActivity extends AppCompatActivity  implemen
                 .getDefaultSharedPreferences(this);
         WebsiteListFragment.distractionsToday = prefs.getInt("numberOfDistractions", 0);
         WebsiteListFragment.distractionTimer = prefs.getLong("distractionTimer", 0);
+
+
+
         super.onStart();
     }
 
